@@ -5,3 +5,6 @@ class Tea(models.Model):
     description = models.TextField()
     temperature = models.IntegerField()
     brew_time = models.TextField()
+
+    def __str__(self):
+      return self.name
