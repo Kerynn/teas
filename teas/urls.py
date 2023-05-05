@@ -20,5 +20,6 @@ from teas import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('teas/', views.tea_list)
+    path('teas/', views.tea_list),
+    path('customers/', views.customer_list)
 ]
