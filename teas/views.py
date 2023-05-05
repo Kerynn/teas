@@ -13,6 +13,18 @@ def tea_list(request):
     serializer = TeaSerializer(teas, many=True)
     return JsonResponse({'teas': serializer.data})
 
+@api_view(['GET'])
+def tea_detail(request, id):
+
+    try: 
+        tea = Tea.objects.get(pk=id)
+    except Tea.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = TeaSerializer(tea)
+        return Response({'tea': serializer.data})
+
 @api_view(['GET', 'POST'])
 def customer_list(request):
 
@@ -37,4 +49,4 @@ def customer_detail(request, id):
 
     if request.method == 'GET':
         serializer = CustomerSerializer(customer)
-        return Response(serializer.data)
+        return Response({'customer': serializer.data})
