@@ -7,11 +7,19 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def tea_list(request):
-    teas = Tea.objects.all()
-    serializer = TeaSerializer(teas, many=True)
-    return JsonResponse({'teas': serializer.data})
+
+    if request.method == 'GET':
+        teas = Tea.objects.all()
+        serializer = TeaSerializer(teas, many=True)
+        return JsonResponse({'teas': serializer.data})
+
+    if request.method == 'POST':
+        serailizer = TeaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(['GET'])
 def tea_detail(request, id):
