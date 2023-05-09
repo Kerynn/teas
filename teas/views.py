@@ -16,7 +16,7 @@ def tea_list(request):
         return JsonResponse({'teas': serializer.data})
 
     if request.method == 'POST':
-        serailizer = TeaSerializer(data=request.data)
+        serializer = TeaSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
