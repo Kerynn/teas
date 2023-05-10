@@ -5,6 +5,7 @@ class Tea(models.Model):
     description = models.TextField()
     temperature = models.IntegerField()
     brew_time = models.TextField()
+    tea_subscription = models.ManyToManyField('Customer', through='Subscription')
 
     def __str__(self):
       return self.name
@@ -14,6 +15,7 @@ class Customer(models.Model):
     last_name = models.CharField(max_length=200)
     email = models.EmailField()
     address = models.CharField(max_length=200)
+    customer_subscription = models.ManyToManyField('Tea', through='Subscription')
 
     def __str__(self):
       return self.first_name + " " + self.last_name
