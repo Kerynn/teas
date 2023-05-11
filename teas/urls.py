@@ -23,5 +23,6 @@ urlpatterns = [
     path('teas/', views.tea_list),
     path('teas/<int:id>', views.tea_detail),
     path('customers/', views.customer_list),
-    path('customers/<int:id>', views.customer_detail)
+    path('customers/<int:id>', views.customer_detail),
+    path('subscriptions/', views.subscription_list)
 ]
