@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Tea
 from .models import Customer
+from .models import Subscription
 
 class TeaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,3 +12,8 @@ class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ['id', 'first_name', 'last_name', 'email', 'address']
+
+class SubscriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscription
+        fields = ['id', 'title', 'price', 'status', 'frequency', 'tea', 'customer']
