@@ -1,8 +1,10 @@
 from django.http import JsonResponse
 from .models import Tea
 from .models import Customer
+from .models import Subscription
 from .serializers import TeaSerializer
 from .serializers import CustomerSerializer
+from .serializers import SubscriptionSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -58,3 +60,11 @@ def customer_detail(request, id):
     if request.method == 'GET':
         serializer = CustomerSerializer(customer)
         return Response({'customer': serializer.data})
+
+@api_view(['GET', 'POST'])
+def subscription_list(request):
+
+    if request.method == 'GET':
+        subscriptions = Subscription.objects.all()
+        serializer = SubscriptionSerializer(subscriptions, many=True)
+        return JsonResponse({'subscriptions': serializer.data})
