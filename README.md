@@ -68,6 +68,30 @@ GET "customers/"
 ```
 
 ### Subscriptions
+**Create a subscription request:**
+```
+{
+    "customer": 2,
+    "tea": 2,
+    "title": "Morning Fog",
+    "frequency": "monthly",
+    "price": 28.50
+}
+```
+
+**Response:**
+```
+{
+    "id": 3,
+    "title": "Morning Fog",
+    "price": "28.50",
+    "status": "Active",
+    "frequency": "monthly",
+    "tea": 2,
+    "customer": 2
+}
+```
+
 **Request:**
 ```
 GET "subscriptions/"
