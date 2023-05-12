@@ -17,12 +17,23 @@ All endpoints start with url: http://127.0.0.1:8000
 ### Teas 
 **Create tea request:**
 ```
+POST "teas/"
+Content-Type: application/json
+Accept: application/json
 
+{
+    "name": "Sunshine Spice",
+    "description": "Sunny morning joy!",
+    "temperature": 160,
+    "brew_time": "25 minutes"
+}
 ```
 
 **Response:**
 ```
-
+{
+    "success": "Tea created successfully"
+}
 ```
 
 **Get all teas request:**
@@ -60,11 +71,22 @@ GET "teas/<tea_id>"
 **Request:**
 ```
 POST "customers/"
+Content-Type: application/json
+Accept: application/json
+
+{
+    "first_name": "Kamee",
+    "last_name": "Nev",
+    "email": "kamnev@fakeemail.com",
+    "address": "1234 Happy Ln"
+}
 ```
 
 **Response:**
 ```
-
+{
+    "success": "Customer created successfully"
+}
 ```
 
 ### Subscriptions
