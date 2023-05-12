@@ -59,7 +59,7 @@ GET "teas/<tea_id>"
 ### Customers 
 **Request:**
 ```
-GET "customers/"
+POST "customers/"
 ```
 
 **Response:**
@@ -70,6 +70,10 @@ GET "customers/"
 ### Subscriptions
 **Create a subscription request:**
 ```
+POST "subscriptions/"
+Content-Type: application/json
+Accept: application/json
+
 {
     "customer": 2,
     "tea": 2,
@@ -82,13 +86,7 @@ GET "customers/"
 **Response:**
 ```
 {
-    "id": 3,
-    "title": "Morning Fog",
-    "price": "28.50",
-    "status": "Active",
-    "frequency": "monthly",
-    "tea": 2,
-    "customer": 2
+    "success": "Subscription created successfully"
 }
 ```
 
