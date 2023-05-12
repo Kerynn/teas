@@ -99,5 +99,18 @@ GET "subscriptions/"
 
 **Response:**
 ```
-
+{
+  "subscriptions": [
+      {
+        "id": 1,
+        "title": "Sunshine Spice",
+        "price": "24.24",
+        "status": "Active",
+        "frequency": "Annually",
+        "tea": 1,
+        "customer": 2
+      },
+      {...}
+  ]
+}
 ```
