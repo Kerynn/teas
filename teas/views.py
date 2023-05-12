@@ -72,4 +72,4 @@ def subscription_list(request):
         serializer = SubscriptionSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response({'success': 'Subscription created successfully'}, status=status.HTTP_201_CREATED)
