@@ -21,7 +21,7 @@ def tea_list(request):
         serializer = TeaSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response({'success': 'Tea created successfully'}, status=status.HTTP_201_CREATED)
 
 @api_view(['GET'])
 def tea_detail(request, id):
@@ -47,7 +47,7 @@ def customer_list(request):
         serializer = CustomerSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response({'success': 'Customer created successfully'}, status=status.HTTP_201_CREATED)
 
 @api_view(['GET'])
 def customer_detail(request, id):
@@ -68,6 +68,7 @@ def subscription_list(request):
         subscriptions = Subscription.objects.all()
         serializer = SubscriptionSerializer(subscriptions, many=True)
         return JsonResponse({'subscriptions': serializer.data})
+
     if request.method == 'POST':
         serializer = SubscriptionSerializer(data=request.data)
         if serializer.is_valid():
