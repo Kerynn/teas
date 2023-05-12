@@ -14,8 +14,18 @@ The goal of this project is to create a backend API service built with Python an
 ## Endpoints
 All endpoints start with url: http://127.0.0.1:8000
 
-### Create Tea
-**Request:**
+### Teas 
+**Create tea request:**
+```
+
+```
+
+**Response:**
+```
+
+```
+
+**Get all teas request:**
 ```
 GET "teas/"
 ```
@@ -34,4 +44,36 @@ GET "teas/"
       {...}
   ]
 }
+```
+
+**Get tea details request:**
+```
+GET "teas/<tea_id>"
+```
+
+**Response:**
+```
+
+```
+
+### Customers 
+**Request:**
+```
+GET "customers/"
+```
+
+**Response:**
+```
+
+```
+
+### Subscriptions
+**Request:**
+```
+GET "subscriptions/"
+```
+
+**Response:**
+```
+
 ```
