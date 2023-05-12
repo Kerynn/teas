@@ -25,7 +25,7 @@ class Subscription(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    status = models.CharField(max_length=200)
+    status = models.CharField("Active", max_length=200, default="Active")
     frequency = models.CharField(max_length=200)
 
     def __str__(self):
