@@ -61,6 +61,19 @@ def customer_detail(request, id):
         serializer = CustomerSerializer(customer)
         return Response({'customer': serializer.data})
 
+@api_view(['GET'])
+def customer_subscriptions(request, id):
+    
+        try:
+            customer = Customer.objects.get(pk=id)
+        except Customer.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+    
+        if request.method == 'GET':
+            subscriptions = Subscription.objects.filter(customer=customer)
+            serializer = SubscriptionSerializer(subscriptions, many=True)
+            return JsonResponse({'subscriptions': serializer.data})
+
 @api_view(['GET', 'POST'])
 def subscription_list(request):
 
