@@ -112,7 +112,7 @@ Accept: application/json
 }
 ```
 
-**Request:**
+**Get all existing subscriptions request:**
 ```
 GET "subscriptions/"
 ```
@@ -131,6 +131,37 @@ GET "subscriptions/"
         "customer": 2
       },
       {...}
+  ]
+}
+```
+
+**Get subscriptions belonging to a customer request:**
+``` 
+GET "customers/<customer_id>/subscriptions"
+```
+
+**Response:**
+```
+{
+  "subscriptions": [
+      {
+        "id": 1,
+        "title": "Sunshine Spice",
+        "price": "24.24",
+        "status": "Active",
+        "frequency": "Annually",
+        "tea": 1,
+        "customer": 2
+      },
+      {
+        "id": 3,
+        "title": "Morning Fog",
+        "price": "28.50",
+        "status": "Active",
+        "frequency": "monthly",
+        "tea": 2,
+        "customer": 2
+      }
   ]
 }
 ```
