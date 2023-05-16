@@ -17,3 +17,8 @@ class SubscriptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subscription
         fields = ['id', 'title', 'price', 'status', 'frequency', 'tea', 'customer']
+
+class SubscriptionStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscription
+        fields = ['status']
