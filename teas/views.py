@@ -21,7 +21,7 @@ def tea_list(request):
         serializer = TeaSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'success': 'Tea created successfully'}, status=status.HTTP_201_CREATED)
+            return JsonResponse({'success': 'Tea created successfully'}, status=status.HTTP_201_CREATED)
 
 @api_view(['GET'])
 def tea_detail(request, id):
@@ -33,7 +33,7 @@ def tea_detail(request, id):
 
     if request.method == 'GET':
         serializer = TeaSerializer(tea)
-        return Response({'tea': serializer.data})
+        return JsonResponse({'tea': serializer.data})
 
 @api_view(['GET', 'POST'])
 def customer_list(request):
@@ -47,7 +47,7 @@ def customer_list(request):
         serializer = CustomerSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'success': 'Customer created successfully'}, status=status.HTTP_201_CREATED)
+            return JsonResponse({'success': 'Customer created successfully'}, status=status.HTTP_201_CREATED)
 
 @api_view(['GET'])
 def customer_detail(request, id):
@@ -59,7 +59,7 @@ def customer_detail(request, id):
 
     if request.method == 'GET':
         serializer = CustomerSerializer(customer)
-        return Response({'customer': serializer.data})
+        return JsonResponse({'customer': serializer.data})
 
 @api_view(['GET'])
 def customer_subscriptions(request, id):
@@ -86,4 +86,16 @@ def subscription_list(request):
         serializer = SubscriptionSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'success': 'Subscription created successfully'}, status=status.HTTP_201_CREATED)
+            return JsonResponse({'success': 'Subscription created successfully'}, status=status.HTTP_201_CREATED)
+
+@api_view(['GET'])
+def subscription_detail(request, id):
+
+    try:
+        subscription = Subscription.objects.get(pk=id)
+    except Subscription.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = SubscriptionSerializer(subscription)
+        return JsonResponse({'subscription': serializer.data})
