@@ -5,6 +5,7 @@ from .models import Subscription
 from .serializers import TeaSerializer
 from .serializers import CustomerSerializer
 from .serializers import SubscriptionSerializer
+from .serializers import SubscriptionStatusSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -88,7 +89,7 @@ def subscription_list(request):
             serializer.save()
             return JsonResponse({'success': 'Subscription created successfully'}, status=status.HTTP_201_CREATED)
 
-@api_view(['GET'])
+@api_view(['GET', 'PUT'])
 def subscription_detail(request, id):
 
     try:
@@ -99,3 +100,10 @@ def subscription_detail(request, id):
     if request.method == 'GET':
         serializer = SubscriptionSerializer(subscription)
         return JsonResponse({'subscription': serializer.data})
+    
+    if request.method == 'PUT':
+        serializer = SubscriptionStatusSerializer(subscription, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'success': 'Subscription status updated successfully'}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
