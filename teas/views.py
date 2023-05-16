@@ -89,7 +89,7 @@ def subscription_list(request):
             serializer.save()
             return JsonResponse({'success': 'Subscription created successfully'}, status=status.HTTP_201_CREATED)
 
-@api_view(['GET', 'PUT'])
+@api_view(['GET', 'PATCH'])
 def subscription_detail(request, id):
 
     try:
@@ -101,7 +101,7 @@ def subscription_detail(request, id):
         serializer = SubscriptionSerializer(subscription)
         return JsonResponse({'subscription': serializer.data})
     
-    if request.method == 'PUT':
+    if request.method == 'PATCH':
         serializer = SubscriptionStatusSerializer(subscription, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
