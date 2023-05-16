@@ -64,7 +64,13 @@ GET "teas/<tea_id>"
 
 **Response:**
 ```
-
+"teas": {
+        "id": 1,
+        "name": "Sunshine Spice",
+        "description": "Sunny morning joy!",
+        "temperature": 160,
+        "brew_time": "25 minutes"
+      }
 ```
 
 ### Customers 
@@ -163,5 +169,23 @@ GET "customers/<customer_id>/subscriptions"
         "customer": 2
       }
   ]
+}
+```
+
+**Update status of a subscription request:**
+```
+PATCH "subscriptions/<subscrption_id>"
+Content-Type: application/json
+Accept: application/json
+
+{
+  "status": "cancelled"
+}
+```
+
+**Response:**
+```
+{
+  "success": "Subscription status updated successfully"
 }
 ```
