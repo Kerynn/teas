@@ -25,5 +25,6 @@ urlpatterns = [
     path('customers/', views.customer_list),
     path('customers/<int:id>', views.customer_detail),
     path('customers/<int:id>/subscriptions/', views.customer_subscriptions),
-    path('subscriptions/', views.subscription_list)
+    path('subscriptions/', views.subscription_list),
+    path('subscriptions/<int:id>', views.subscription_detail)
 ]
