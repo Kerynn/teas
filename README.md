@@ -64,13 +64,16 @@ GET "teas/<tea_id>"
 
 **Response:**
 ```
-"teas": {
+{
+  "tea": 
+      {
         "id": 1,
         "name": "Sunshine Spice",
         "description": "Sunny morning joy!",
         "temperature": 160,
         "brew_time": "25 minutes"
       }
+}
 ```
 
 ### Customers 
