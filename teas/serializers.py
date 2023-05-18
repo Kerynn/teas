@@ -1,7 +1,5 @@
 from rest_framework import serializers
-from .models import Tea
-from .models import Customer
-from .models import Subscription
+from .models import Tea, Customer, Subscription
 
 class TeaSerializer(serializers.ModelSerializer):
     class Meta:
