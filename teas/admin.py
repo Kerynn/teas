@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Tea
-from .models import Customer
-from .models import Subscription
+from .models import Tea, Customer, Subscription
 
 admin.site.register(Tea)
 admin.site.register(Customer)
