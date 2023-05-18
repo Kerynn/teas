@@ -1,11 +1,6 @@
 from django.http import JsonResponse
-from .models import Tea
-from .models import Customer
-from .models import Subscription
-from .serializers import TeaSerializer
-from .serializers import CustomerSerializer
-from .serializers import SubscriptionSerializer
-from .serializers import SubscriptionStatusSerializer
+from .models import Tea, Customer, Subscription
+from .serializers import TeaSerializer, CustomerSerializer, SubscriptionSerializer, SubscriptionStatusSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
