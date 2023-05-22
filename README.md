@@ -83,7 +83,9 @@ DELETE "teas/<tea_id>"
 
 **Response:**
 ```
+{
   "success": "Tea deleted successfully"
+}
 ```
 
 ### Customers 
