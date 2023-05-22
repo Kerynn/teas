@@ -19,7 +19,7 @@ def tea_list(request):
             serializer.save()
             return JsonResponse({'success': 'Tea created successfully'}, status=status.HTTP_201_CREATED)
 
-@api_view(['GET'])
+@api_view(['GET', 'DELETE'])
 def tea_detail(request, id):
 
     try: 
@@ -30,6 +30,9 @@ def tea_detail(request, id):
     if request.method == 'GET':
         serializer = TeaSerializer(tea)
         return JsonResponse({'tea': serializer.data})
+    elif request.method == 'DELETE':
+        tea.delete()
+        return JsonResponse({'success': 'Tea deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET', 'POST'])
 def customer_list(request):
