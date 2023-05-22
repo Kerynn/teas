@@ -76,6 +76,16 @@ GET "teas/<tea_id>"
 }
 ```
 
+**Delete tea request:**
+```
+DELETE "teas/<tea_id>"
+```
+
+**Response:**
+```
+  "success": "Tea deleted successfully"
+```
+
 ### Customers 
 **Request:**
 ```
